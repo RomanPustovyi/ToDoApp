@@ -1,10 +1,10 @@
 import './Checkbox.css';
 import { ReactComponent as CheckIcon } from '../assets/images/icon-check.svg'
 
-export const Checkbox = ({ checked = false }) => {
-
-    const handleCheckboxChange = () => console.warn('Not implemented!')
-
+export const Checkbox = ({
+    checked = false,
+    handleChange = () => console.warn('Missing handleChange prop')
+}) => {
     const CheckboxStyle = 'Checkbox '.concat(checked ? 'checked' : '')
 
     return (
@@ -12,7 +12,7 @@ export const Checkbox = ({ checked = false }) => {
             <input
                 type='checkbox'
                 checked={checked}
-                onChange={handleCheckboxChange}
+                onChange={handleChange}
             />
             <span className={CheckboxStyle}>
                 {checked && <CheckIcon className='check-icon' />}
