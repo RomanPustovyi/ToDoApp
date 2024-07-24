@@ -1,7 +1,9 @@
-import { useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { useCallback, useEffect, useState } from 'react'
+import { deleteOne } from './todoSlice'
 
 export const useTodos = () => {
+    const dispatch = useDispatch()
     const allTodos = useSelector(state => state.todoReducer.todos)
     const filter = useSelector(state => state.todoReducer.filter)
     const [remainingTodos, setRemainingTodos] = useState([])
@@ -33,5 +35,10 @@ export const useTodos = () => {
 
     }, [allTodos, filter])
 
-    return { allTodos, remainingTodos, completedTodos, todosToDisplay }
+    const deleteTodo = useCallback((todoID) => {
+        console.log(todoID)
+        dispatch(deleteOne(todoID))
+    }, [])
+
+    return { allTodos, remainingTodos, completedTodos, todosToDisplay, deleteTodo }
 }

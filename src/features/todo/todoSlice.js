@@ -16,6 +16,9 @@ export const todoSlice = createSlice({
         setCompleted: (state) => {
             console.warn('Not implemented!')
         },
+        deleteOne: (state, action) => {
+            state.todos = state.todos.filter(todo => todo.id !== action.payload)
+        },
         deleteAllCompleted: (state, action) => {
             console.warn('Not implemented!')
         },
@@ -25,6 +28,6 @@ export const todoSlice = createSlice({
     }
 })
 
-export const { create, setCompleted, deleteAllCompleted, setFilter } = todoSlice.actions
+export const { create, setCompleted, deleteOne, deleteAllCompleted, setFilter } = todoSlice.actions
 
 export default todoSlice.reducer
