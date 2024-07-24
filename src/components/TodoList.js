@@ -4,7 +4,7 @@ import { TodoFilters } from './TodoFilters'
 import { useTodos } from '../features/todo/useTodo'
 
 export const TodoList = () => {
-    const { todosToDisplay, remainingTodos } = useTodos()
+    const { todosToDisplay, remainingTodos, deleteAllCompleted } = useTodos()
 
     return (
         <div className='ListContainer'>
@@ -16,7 +16,7 @@ export const TodoList = () => {
             <div className='ListFooter'>
                 <p>{remainingTodos.length} items left</p>
                 <TodoFilters />
-                <button className="ClearCompletedTodosButton">Clear Completed</button>
+                <button className="ClearCompletedTodosButton" onClick={deleteAllCompleted}>Clear Completed</button>
             </div>
         </div>
     )

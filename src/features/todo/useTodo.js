@@ -1,6 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useCallback, useEffect, useState } from 'react'
-import { deleteOne, toggleTodoStatus as _toggleTodoStatus } from './todoSlice'
+import {
+    deleteOne,
+    toggleTodoStatus as _toggleTodoStatus,
+    deleteAllCompleted as _deleteAllCompleted,
+} from './todoSlice'
 
 export const useTodos = () => {
     const dispatch = useDispatch()
@@ -35,6 +39,10 @@ export const useTodos = () => {
 
     }, [allTodos, filter])
 
+    const deleteAllCompleted = useCallback(() => {
+        dispatch(_deleteAllCompleted())
+    }, [])
+
     const deleteTodo = useCallback((todoID) => {
         console.log(todoID)
         dispatch(deleteOne(todoID))
@@ -44,5 +52,5 @@ export const useTodos = () => {
         dispatch(_toggleTodoStatus(todoID))
     }, [])
 
-    return { allTodos, remainingTodos, completedTodos, todosToDisplay, deleteTodo, toggleTodoStatus }
+    return { allTodos, remainingTodos, completedTodos, todosToDisplay, deleteTodo, toggleTodoStatus, deleteAllCompleted }
 }
