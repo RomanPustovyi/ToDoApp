@@ -1,0 +1,30 @@
+.ListContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 440px;
+    border-radius: 6px;
+    background-color: #FFF;
+}
+
+.ListContainer ul {
+    flex: 1;
+}
+
+.ListContainer ul li:not(:last-child) {
+    border-bottom: 1px solid #000;
+}
+
+.ListFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    padding: 0 24px;
+    border-top: 1px solid #000;
+    color: #000;
+}
+
+.ClearCompletedTodosButton {
+    color: #000;
+}

@@ -1,0 +1,19 @@
+.InputWrapper {
+    display: flex;
+    align-items: center;
+    padding: 24px;
+    width: 100%;
+    height: 64px;
+    border-radius: 6px;
+    background-color: #FFF;
+    margin-bottom: 24px;
+}
+
+.Input {
+    font-size: 18px;
+    border: none;
+}
+
+.Input:focus {
+    outline: none;
+}

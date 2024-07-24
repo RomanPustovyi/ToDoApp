@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 import todos from './todoMockData'
 
 const initialState = {
-    todos: [...todos]
+    todos: [...todos],
+    filter: 'All'
 }
 
 export const todoSlice = createSlice({
@@ -18,9 +19,12 @@ export const todoSlice = createSlice({
         deleteAllCompleted: (state, action) => {
             console.warn('Not implemented!')
         },
+        setFilter: (state, action) => {
+            state.filter = action.payload
+        }
     }
 })
 
-export const { create, setCompleted, deleteAllCompleted } = todoSlice.actions
+export const { create, setCompleted, deleteAllCompleted, setFilter } = todoSlice.actions
 
 export default todoSlice.reducer

@@ -1,0 +1,21 @@
+.Filters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Filters .FilterOption:not(:last-child) {
+    margin-right: 10px;
+}
+
+.FilterOption input[type="radio"] {
+    display: none;
+}
+
+.FilterOption input[type="radio"]+label {
+    cursor: pointer;
+}
+
+.FilterOption input[type="radio"]:checked+label {
+    color: red;
+}

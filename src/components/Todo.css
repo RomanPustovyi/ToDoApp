@@ -1,0 +1,17 @@
+.Container {
+    max-width: 540px;
+}
+
+.Header {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    margin-bottom: 42px;
+}
+
+.Title {
+    text-transform: uppercase;
+    color: light-dark(#FFF);
+    font-weight: 600;
+    letter-spacing: 18px;
+}

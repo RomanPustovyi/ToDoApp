@@ -1,9 +1,12 @@
-const App = () => {
-  return (
-    <div className="App">
+import { Layout } from './components/Layout'
+import { Todo } from './components/Todo'
 
-    </div>
-  )
+const App = () => {
+	return (
+		<Layout>
+			<Todo />
+		</Layout>
+	)
 }
 
 export default App
