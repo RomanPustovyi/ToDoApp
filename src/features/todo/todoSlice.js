@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { createId } from './utils'
 import todos from './todoMockData'
 
 const initialState = {
@@ -11,7 +12,11 @@ export const todoSlice = createSlice({
     initialState,
     reducers: {
         create: (state, action) => {
-            console.warn('Not implemented!')
+            state.todos.unshift({
+                id: createId(),
+                isCompleted: action.payload.isCompleted,
+                data: action.payload.text
+            })
         },
         toggleTodoStatus: (state, action) => {
             state.todos = state.todos.map(todo => {

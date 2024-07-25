@@ -4,6 +4,7 @@ import {
     deleteOne,
     toggleTodoStatus as _toggleTodoStatus,
     deleteAllCompleted as _deleteAllCompleted,
+    create
 } from './todoSlice'
 
 export const useTodos = () => {
@@ -52,5 +53,18 @@ export const useTodos = () => {
         dispatch(_toggleTodoStatus(todoID))
     }, [])
 
-    return { allTodos, remainingTodos, completedTodos, todosToDisplay, deleteTodo, toggleTodoStatus, deleteAllCompleted }
+    const createTodo = useCallback((text, isCompleted) => {
+        dispatch(create({ text, isCompleted }))
+    }, [])
+
+    return {
+        allTodos,
+        remainingTodos,
+        completedTodos,
+        todosToDisplay,
+        deleteTodo,
+        toggleTodoStatus,
+        deleteAllCompleted,
+        createTodo
+    }
 }
