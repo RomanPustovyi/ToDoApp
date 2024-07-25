@@ -15,7 +15,7 @@ export const todoSlice = createSlice({
             state.todos.unshift({
                 id: createId(),
                 isCompleted: action.payload.isCompleted,
-                data: action.payload.text
+                text: action.payload.text
             })
         },
         toggleTodoStatus: (state, action) => {
