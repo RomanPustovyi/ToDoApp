@@ -8,11 +8,12 @@ export const TodoListItem = ({
 }) => {
     const { deleteTodo, toggleTodoStatus } = useTodos()
 
+    const TextStyle = 'TodoText '.concat(data.isCompleted ? 'completed' : '')
     return (
         <li className='ListItem'>
             <Checkbox checked={data.isCompleted} handleChange={() => toggleTodoStatus(data.id)} />
             <div className='TodoTextWrapper'>
-                <p className='TodoText'>{data.data}</p>
+                <p className={TextStyle}>{data.data}</p>
             </div>
 
             <button className='DeleteButton' onClick={() => deleteTodo(data.id)}>

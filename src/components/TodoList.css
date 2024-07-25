@@ -5,6 +5,7 @@
     height: 440px;
     border-radius: 6px;
     background-color: light-dark(#FFF, var(--dk-Very-Dark-Desaturated-Blue));
+    box-shadow: 0 0 50px rgba(0, 0, 0, .2);
 }
 
 .ListContainer ul {
@@ -26,4 +27,6 @@
     color: light-dark(var(--lt-Dark-Grayish-Blue), var(--dk-Dark-Grayish-Blue));
 }
 
-.ClearCompletedTodosButton {}
+.ClearCompletedTodosButton:hover {
+    color: light-dark(var(--lt-Very-Dark-Grayish-Blue), var(--dk-Light-Grayish-Blue__hover));
+}
