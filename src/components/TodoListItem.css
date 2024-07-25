@@ -30,6 +30,11 @@
     display: none;
 }
 
-.DeleteButton:focus {
+.DeleteButton svg {
+    fill: var(--lt-Very-Dark-Grayish-Blue);
     outline: none;
+}
+
+.DeleteButton:hover svg {
+    fill: var(--primary-Bright-Blue);
 }
