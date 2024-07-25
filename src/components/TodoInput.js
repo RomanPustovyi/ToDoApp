@@ -19,7 +19,7 @@ export const TodoInput = () => {
     }
 
     return (
-        <div className='InputWrapper'>
+        <div className='InputContainer'>
             <Checkbox
                 checked={isCompleted}
                 handleChange={() => setIsCompleted(!isCompleted)}

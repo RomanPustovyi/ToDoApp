@@ -5,7 +5,7 @@ import { TodoList } from './TodoList'
 
 export const Todo = () => {
     return (
-        <div className='Container'>
+        <div className='TodoContainer'>
             <div className='Header'>
                 <h1 className='Title'>Todo</h1>
                 <ColorThemeButton />

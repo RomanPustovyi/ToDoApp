@@ -17,5 +17,10 @@
 }
 
 .FilterOption input[type="radio"]:checked+label {
-    color: red;
+    font-weight: 700;
+    color: var(--primary-Bright-Blue);
+}
+
+.FilterOption input[type="radio"]:hover+label {
+    color: light-dark(var(--lt-Very-Dark-Grayish-Blue), var(--dk-Light-Grayish-Blue__hover));
 }

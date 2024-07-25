@@ -11,7 +11,7 @@
 .Checkbox {
     width: 24px;
     height: 24px;
-    border: 2px solid #ccc;
+    border: 1px solid light-dark(var(--lt-Light-Grayish-Blue), var(--dk-Very-Dark-Grayish-Blue-2));
     border-radius: 50%;
     display: flex;
     align-items: center;

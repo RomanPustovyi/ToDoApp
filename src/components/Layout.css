@@ -1,0 +1,6 @@
+.BackgroundImage {
+    background-image: url(../assets/images/bg-desktop-light.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+}

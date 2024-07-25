@@ -1,17 +1,18 @@
-.Container {
+.TodoContainer {
     max-width: 540px;
+    margin: -230px auto 0;
 }
 
 .Header {
     display: flex;
     flex: 1;
     justify-content: space-between;
-    margin-bottom: 42px;
+    margin-bottom: 45px;
 }
 
 .Title {
     text-transform: uppercase;
-    color: light-dark(#FFF);
-    font-weight: 600;
+    color: #FFF;
+    font-weight: 700;
     letter-spacing: 18px;
 }
