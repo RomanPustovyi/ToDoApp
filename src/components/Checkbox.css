@@ -8,6 +8,19 @@
     display: none;
 }
 
+.CheckboxOutline {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.CheckboxOutline:hover {
+    background: var(--primary-Check-Background);
+}
+
 .Checkbox {
     width: 24px;
     height: 24px;
@@ -16,6 +29,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: light-dark(#FFF, var(--dk-Very-Dark-Desaturated-Blue));
 }
 
 .Checkbox.checked {

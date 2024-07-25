@@ -14,9 +14,11 @@ export const Checkbox = ({
                 checked={checked}
                 onChange={handleChange}
             />
-            <span className={CheckboxStyle}>
-                {checked && <CheckIcon className='check-icon' />}
-            </span>
+            <div className='CheckboxOutline'>
+                <span className={CheckboxStyle}>
+                    {checked && <CheckIcon className='check-icon' />}
+                </span>
+            </div>
         </label>
     )
 }
