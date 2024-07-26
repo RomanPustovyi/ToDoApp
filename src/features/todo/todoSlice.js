@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { createId } from './utils'
-import todos from './todoMockData'
+import mockData from './todoMockData'
 
 const initialState = {
-    todos: [...todos],
+    todos: mockData.todos,
+    order: mockData.order,
     filter: 'All'
 }
 
@@ -11,28 +12,44 @@ export const todoSlice = createSlice({
     name: 'todo',
     initialState,
     reducers: {
-        setTodos: (state, action) => {
-            state.todos = [...action.payload]
+        setOrder: (state, action) => {
+            state.order = action.payload
         },
         create: (state, action) => {
-            state.todos.unshift({
-                id: createId(),
+            const id = createId()
+            state.todos[id] = {
+                id,
                 isCompleted: action.payload.isCompleted,
                 text: action.payload.text
-            })
+            }
+            state.order.unshift(id)
         },
         toggleTodoStatus: (state, action) => {
-            state.todos = state.todos.map(todo => {
-                if (todo.id === action.payload)
-                    return { ...todo, isCompleted: !todo.isCompleted }
-                return todo
-            })
+            state.todos = {
+                ...state.todos,
+                [action.payload]: {
+                    ...state.todos[action.payload],
+                    isCompleted: !state.todos[action.payload].isCompleted
+                }
+            }
         },
         deleteOne: (state, action) => {
-            state.todos = state.todos.filter(todo => todo.id !== action.payload)
+            const todosCopy = { ...state.todos }
+            delete todosCopy[action.payload]
+            state.todos = todosCopy
+            state.order = state.order.filter(id => id !== action.payload)
         },
         deleteAllCompleted: (state) => {
-            state.todos = state.todos.filter(todo => !todo.isCompleted)
+            const todosCopy = { ...state.todos }
+
+            const todosForDeletion = Object.values(todosCopy).filter(todo => todo.isCompleted)
+
+            const ids = todosForDeletion.map(todo => todo.id)
+            state.order = state.order.filter(id => !ids.includes(id))
+
+            todosForDeletion.forEach(todo => {
+                delete todosCopy[todo.id]
+            })
         },
         setFilter: (state, action) => {
             state.filter = action.payload
@@ -40,6 +57,6 @@ export const todoSlice = createSlice({
     }
 })
 
-export const { setTodos, create, toggleTodoStatus, deleteOne, deleteAllCompleted, setFilter } = todoSlice.actions
+export const { setOrder, create, toggleTodoStatus, deleteOne, deleteAllCompleted, setFilter } = todoSlice.actions
 
 export default todoSlice.reducer

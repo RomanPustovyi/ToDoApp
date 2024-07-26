@@ -3,9 +3,10 @@ import { TodoListItem } from './TodoListItem'
 import { TodoFilters } from './TodoFilters'
 import { useTodos } from '../features/todo/useTodo'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
+import { useMemo } from 'react'
 
 export const TodoList = () => {
-    const { allTodos, todosToDisplay, remainingTodos, deleteAllCompleted, setTodos } = useTodos()
+    const { allTodos, order, filter, deleteAllCompleted, setOrder } = useTodos()
 
     const onDragEnd = (result) => {
         const { destination, source, draggableId } = result
@@ -16,12 +17,15 @@ export const TodoList = () => {
             destination.index === source.index
         ) return
 
-        const items = [...allTodos]
-        const [reorderedItem] = items.splice(result.source.index, 1)
-        items.splice(result.destination.index, 0, reorderedItem)
-        console.log(items)
-        setTodos(items)
+        const newOrder = [...order]
+        newOrder.splice(source.index, 1)
+        newOrder.splice(destination.index, 0, draggableId)
+        setOrder(newOrder)
     }
+
+    const remainingTodosCounter = useMemo(() => {
+        return Object.values(allTodos).filter(todo => !todo.isCompleted).length
+    }, [allTodos])
 
     return (
         <div className='ListContainer'>
@@ -33,16 +37,21 @@ export const TodoList = () => {
                 >
                     {(provided) => (
                         <ul ref={provided.innerRef} {...provided.droppableProps}>
-                            {todosToDisplay.map((todo, i) => (
-                                <TodoListItem key={i} data={todo} index={i} />
-                            ))}
+                            {
+                                order.map((todoId, i) => {
+                                    if (filter === 'All') return <TodoListItem key={i} data={allTodos[todoId]} index={i} />
+                                    if (filter === 'Completed' && allTodos[todoId].isCompleted) return <TodoListItem key={i} data={allTodos[todoId]} index={i} />
+                                    if (filter === 'Active' && !allTodos[todoId].isCompleted) return <TodoListItem key={i} data={allTodos[todoId]} index={i} />
+                                    return null
+                                })
+                            }
                             {provided.placeholder}
                         </ul>
                     )}
                 </Droppable>
             </DragDropContext>
             <div className='ListFooter'>
-                <p>{remainingTodos.length} items left</p>
+                <p>{remainingTodosCounter} items left</p>
                 <TodoFilters />
                 <button className="ClearCompletedTodosButton" onClick={deleteAllCompleted}>Clear Completed</button>
             </div>
