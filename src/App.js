@@ -16,6 +16,9 @@ const App = () => {
 	return (
 		<Layout>
 			<Todo />
+			<div className='Hint'>
+				<p>Drag and drop to reorder list</p>
+			</div>
 		</Layout>
 	)
 }

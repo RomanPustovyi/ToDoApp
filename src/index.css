@@ -60,8 +60,20 @@ button {
 	cursor: pointer;
 }
 
+.Hint {
+	font-size: 15px;
+	text-align: center;
+	margin: 45px 0;
+	color: light-dark(var(--lt-Dark-Grayish-Blue), var(--dk-Dark-Grayish-Blue));
+}
+
 @media (max-width: 550px) {
 	body {
 		font-size: 12px;
+	}
+
+	.Hint {
+		text-align: center;
+		margin: 100px 0 65px;
 	}
 }
