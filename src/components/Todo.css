@@ -16,3 +16,18 @@
     font-weight: 700;
     letter-spacing: 18px;
 }
+
+@media (max-width: 550px) {
+    .TodoContainer {
+        width: 330px;
+        margin: -155px auto 0;
+    }
+
+    .Header {
+        margin-bottom: 35px;
+    }
+
+    .Title {
+        letter-spacing: 12px;
+    }
+}

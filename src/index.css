@@ -54,7 +54,14 @@ img {
 button {
 	font-family: inherit;
 	color: inherit;
+	font-size: inherit;
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
+}
+
+@media (max-width: 550px) {
+	body {
+		font-size: 12px;
+	}
 }

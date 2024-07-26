@@ -35,3 +35,15 @@
 .Checkbox.checked {
     background: var(--primary-Check-Background);
 }
+
+@media (max-width: 550px) {
+    .CheckboxOutline {
+        width: 22px;
+        height: 22px;
+    }
+
+    .Checkbox {
+        width: 20px;
+        height: 20px;
+    }
+}

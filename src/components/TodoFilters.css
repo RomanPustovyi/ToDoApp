@@ -24,3 +24,22 @@
 .FilterOption input[type="radio"]:hover+label {
     color: light-dark(var(--lt-Very-Dark-Grayish-Blue), var(--dk-Light-Grayish-Blue__hover));
 }
+
+@media (max-width: 550px) {
+    .Filters {
+        justify-content: space-around;
+        position: absolute;
+        top: 65px;
+        font-size: 16px;
+        right: 0px;
+        left: 0px;
+        padding: 16px 60px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+        background-color: light-dark(#FFF, var(--dk-Very-Dark-Desaturated-Blue));
+    }
+
+    .Filters .FilterOption:not(:last-child) {
+        margin-right: 0px;
+    }
+}

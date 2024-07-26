@@ -1,7 +1,6 @@
 .ListItem {
     display: flex;
     align-items: center;
-    height: 65px;
     padding: 19px;
 }
 
@@ -37,4 +36,22 @@
 
 .DeleteButton:hover svg {
     fill: var(--primary-Bright-Blue);
+}
+
+@media (max-width: 550px) {
+    .ListItem {
+        padding: 16px;
+    }
+
+    .TodoTextWrapper {
+        padding: 0 12px;
+    }
+
+    .DeleteButton {
+        display: inline-block;
+    }
+
+    .DeleteButton svg {
+        transform: scale(.7);
+    }
 }

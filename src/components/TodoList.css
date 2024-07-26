@@ -19,8 +19,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 50px;
-    padding: 0 24px;
+    padding: 20px;
     font-size: 15px;
     font-weight: 400;
     color: light-dark(var(--lt-Dark-Grayish-Blue), var(--dk-Dark-Grayish-Blue));
@@ -28,4 +27,11 @@
 
 .ClearCompletedTodosButton:hover {
     color: light-dark(var(--lt-Very-Dark-Grayish-Blue), var(--dk-Light-Grayish-Blue__hover));
+}
+
+@media (max-width: 550px) {
+    .ListFooter {
+        position: relative;
+        font-size: inherit;
+    }
 }

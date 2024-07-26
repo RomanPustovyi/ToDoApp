@@ -20,3 +20,10 @@
 .Input:focus {
     outline: none;
 }
+
+@media (max-width: 550px) {
+    .InputContainer {
+        height: 45px;
+        margin-bottom: 16px;
+    }
+}
