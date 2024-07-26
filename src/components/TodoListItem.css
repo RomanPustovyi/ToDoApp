@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     padding: 19px;
+    background-color: light-dark(#FFF, var(--dk-Very-Dark-Desaturated-Blue));
 }
 
 .TodoTextWrapper {

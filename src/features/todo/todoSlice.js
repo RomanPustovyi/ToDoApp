@@ -11,6 +11,9 @@ export const todoSlice = createSlice({
     name: 'todo',
     initialState,
     reducers: {
+        setTodos: (state, action) => {
+            state.todos = [...action.payload]
+        },
         create: (state, action) => {
             state.todos.unshift({
                 id: createId(),
@@ -37,6 +40,6 @@ export const todoSlice = createSlice({
     }
 })
 
-export const { create, toggleTodoStatus, deleteOne, deleteAllCompleted, setFilter } = todoSlice.actions
+export const { setTodos, create, toggleTodoStatus, deleteOne, deleteAllCompleted, setFilter } = todoSlice.actions
 
 export default todoSlice.reducer
