@@ -1,7 +1,0 @@
-.LightDarkModeButton {
-    transition: .3s;
-}
-
-.LightDarkModeButton:hover {
-    transform: scale(1.2);
-}
