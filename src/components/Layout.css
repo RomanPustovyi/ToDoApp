@@ -1,0 +1,13 @@
+.BackgroundImage {
+    background-image: url(../assets/images/bg-desktop-light.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+}
+
+@media (max-width: 550px) {
+    .BackgroundImage {
+        background-image: url(../assets/images/bg-mobile-light.jpg);
+        height: 200px;
+    }
+}

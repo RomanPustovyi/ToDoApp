@@ -1,0 +1,49 @@
+.CheckboxContainer {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.CheckboxContainer input {
+    display: none;
+}
+
+.CheckboxOutline {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.CheckboxOutline:hover {
+    background: var(--primary-Check-Background);
+}
+
+.Checkbox {
+    width: 24px;
+    height: 24px;
+    border: 1px solid light-dark(var(--lt-Light-Grayish-Blue), var(--dk-Very-Dark-Grayish-Blue-2));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: light-dark(#FFF, var(--dk-Very-Dark-Desaturated-Blue));
+}
+
+.Checkbox.checked {
+    background: var(--primary-Check-Background);
+}
+
+@media (max-width: 550px) {
+    .CheckboxOutline {
+        width: 22px;
+        height: 22px;
+    }
+
+    .Checkbox {
+        width: 20px;
+        height: 20px;
+    }
+}
